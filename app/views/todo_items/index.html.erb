@@ -1,2 +1,17 @@
-<h1>TodoItems#index</h1>
-<p>Find me in app/views/todo_items/index.html.erb</p>
+<h1>TODO List</h1>
+
+<%= form_with(model: @new_todo_item, url: todo_items_path, local: true) do |form| %>
+  <%= form.text_field :title, placeholder: 'Add a new item...' %>
+  <%= form.submit 'Add' %>
+<% end %>
+
+<ul>
+  <% @todo_items.each do |todo_item| %>
+    <li>
+      <%= check_box_tag nil, nil, todo_item.completed, onclick: "this.form.submit()" %>
+      <%= link_to todo_item.title, todo_item_path(todo_item) %>
+      <%= button_to 'Destroy', todo_item_path(todo_item),
+               method: :delete %>
+    </li>
+  <% end %>
+</ul>
