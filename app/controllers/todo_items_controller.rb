@@ -1,7 +1,10 @@
 class TodoItemsController < ApplicationController
   def index
     @todo_items = TodoItem.all
-    @new_todo_item = TodoItem.new
+  end
+
+  def new
+    @todo_items = TodoItem.new
   end
 
   def create
@@ -16,14 +19,18 @@ class TodoItemsController < ApplicationController
   end
 
   def destroy
-    todo_item = TodoItem.find(params[:id])
-    todo_item.destroy
+    @todo_item = TodoItem.find(params[:id])
+    @todo_item.destroy
     redirect_to root_path
+  end
+
+  def show
+    @todo_item = TodoItem.find(params[:id])
   end
 
   private
 
   def todo_item_params
-    params.require(:todo_item).permit(:title, :description)
+    params.require(:todo_items).permit(:title, :description)
   end
 end
