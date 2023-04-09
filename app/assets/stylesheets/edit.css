@@ -1,0 +1,28 @@
+.field {
+  display: flex;
+  flex-direction: column;
+}
+
+.radiobutton {
+  flex-direction: row;
+}
+
+.editInput {
+  display: flex;
+  flex-direction: column;
+  border-radius: 4px;
+  height: 70px;
+}
+
+.editTextarea {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+}
+
+textarea {
+  border: 1px solid rgb(92, 92, 255);
+  border-radius: 10px;
+  height: 300px;
+  padding: 0.4em 0.4em 9em 0.4em;
+}
