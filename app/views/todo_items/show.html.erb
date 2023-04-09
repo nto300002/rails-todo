@@ -1,4 +1,11 @@
-<h1><%= @todo_item.title %></h1>
-<p><%= @todo_item.description %></p>
-<p><%= @todo_item.completed ? 'Completed' : 'Incomplete' %></p>
+<div class='datetime'>
+  <p><%= @todo_item.created_at %></p>
+</div>
+<h1 class='headline'>Title</h1>
+<h1 class='title'><%= @todo_item.title %></h1>
+<h1 class='headline'>description</h1>
+<p class='description'><%= @todo_item.description %></p>
+<div class='status'>
+  <%= @todo_item.completed ? 'Completed👍' : 'Incomplete😩' %>
+</div>
 <%= link_to 'Back', todo_items_path %>

@@ -14,17 +14,25 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+    <div class="editInput">
+      <%= f.label :title %>
+      <%= f.text_field :title %>
+    </div>
 
-    <%= f.label :description %>
-    <%= f.text_area :description %>
+    <div class="editTextarea">
+      <%= f.label :description %>
+      <%= f.text_area :description %>
+    </div>
 
-    <%= f.radio_button :completed, true %>
-    <%= f.label :completed, "Completed" %>
+    <div class="radiobutton">
+      <%= f.radio_button :completed, true %>
+      <%= f.label :completed, "Completed" %>
+    </div>
 
-    <%= f.radio_button :completed, false %>
-    <%= f.label :completed, "Incomplete" %>
+    <div class="radiobutton">
+      <%= f.radio_button :completed, false %>
+      <%= f.label :completed, "Incomplete" %>
+    </div>
   </div>
 
   <div class="actions">

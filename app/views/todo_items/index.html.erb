@@ -10,9 +10,13 @@
     <li>
       <%= check_box_tag nil, nil, todo_item.completed, onclick: "this.form.submit()" %>
       <%= link_to todo_item.title, todo_item_path(todo_item) %>
+      <span class='edit'>
       <%= button_to 'Edit', edit_todo_item_path(todo_item), method: :get %>
+      </span>
+      <span class='delete'>
       <%= button_to 'Delete', todo_item_path(todo_item),
                method: :delete %>
+      </span>
     </li>
   <% end %>
 </ul>
