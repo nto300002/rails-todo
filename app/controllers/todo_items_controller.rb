@@ -1,10 +1,7 @@
 class TodoItemsController < ApplicationController
   def index
     @todo_items = TodoItem.all
-  end
-
-  def new
-    @todo_items = TodoItem.new
+    @new_todo_item = TodoItem.new
   end
 
   def create
@@ -12,10 +9,21 @@ class TodoItemsController < ApplicationController
     redirect_to root_path
   end
 
-  def update
+  def edit
+    @todo_item = TodoItem.find(params[:id])
+  end
+
+  def complete
     todo_item = TodoItem.find(params[:id])
     todo_item.update(completed: !todo_item.completed)
     redirect_to root_path
+  end
+
+  def update
+    todo_item = TodoItem.find(params[:id])
+    if todo_item.update(todo_item_params)
+      redirect_to root_path
+    end
   end
 
   def destroy
@@ -31,6 +39,6 @@ class TodoItemsController < ApplicationController
   private
 
   def todo_item_params
-    params.require(:todo_items).permit(:title, :description)
+    params.require(:todo_item).permit(:title, :description, :completed)
   end
 end

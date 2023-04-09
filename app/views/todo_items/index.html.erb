@@ -10,7 +10,8 @@
     <li>
       <%= check_box_tag nil, nil, todo_item.completed, onclick: "this.form.submit()" %>
       <%= link_to todo_item.title, todo_item_path(todo_item) %>
-      <%= button_to 'Destroy', todo_item_path(todo_item),
+      <%= button_to 'Edit', edit_todo_item_path(todo_item), method: :get %>
+      <%= button_to 'Delete', todo_item_path(todo_item),
                method: :delete %>
     </li>
   <% end %>
