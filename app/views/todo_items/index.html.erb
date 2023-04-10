@@ -1,7 +1,7 @@
 <h1>TODO List</h1>
 
 <%= form_with(model: @new_todo_item, url: todo_items_path, local: true) do |form| %>
-  <%= form.text_field :title, placeholder: 'Add a new item...' %>
+  <%= form.text_field :title, placeholder: 'Add a new item...', id: 'inputField' %>
   <%= form.submit 'Add' %>
 <% end %>
 

@@ -2,8 +2,16 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 
-const logoLetters = ['C', 'h', 'a', 't', 'G', 'P', 'T', 'が作ったTODOリスト'];
-const logoColors = ['#00a3e0', '#5ac9ea', '#8dd7f6', '#0072c6', '#5ac9ea', '#00a3e0', '#8dd7f6', 'rgb(160, 160, 160)'];
+const inputField = document.getElementById("inputField");
 
-const logo = document.getElementById('logo');
-logo.innerHTML = logoLetters.map((letter, index) => `<span style="color:${logoColors[index]}">${letter}</span>`).join('');
+
+// input要素のバリデーション
+inputField.addEventListener("input", function() {
+  if (inputField.value.length > 70) {
+    inputField.setCustomValidity("70文字以下で入力してください。");
+  } else {
+    inputField.setCustomValidity("");
+  }
+});
+
+
