@@ -51,6 +51,7 @@ li {
   display: flex;
   list-style: none;
   overflow: hidden;
+  margin-bottom: 1em;
 }
 
 a {
